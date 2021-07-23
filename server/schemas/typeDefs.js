@@ -15,21 +15,23 @@ const typeDefs = gql`
     username: String!
     email: String!
     savedBooks: [Book]!
-    toJSON: 
   }
 
   type Auth {
     token: ID!
     user: User
   }
+
   type Query {
     me: User
   }
-  #from user-controller
+  
+  #from user-controller?
   type Mutation {
     createUser(username: String!, email: String!, password: String!): Auth
+    getSingleUser(id: ID, username: String!): Auth
     login(email: String!, password: String!): Auth
-    saveBook(savedBooks: [Book]!): User
+    #saveBook(savedBooks: [Book]!): User
     deleteBook(BookId: String!): User
   }
 `;
