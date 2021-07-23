@@ -1,0 +1,68 @@
+const { Schema } = require('mongoose');
+//any possible utils as const example-util = require('../utils/example-util');
+
+// This is a subdocument schema, it won't become its own model but we'll use it as the schema for the User's `savedBooks` array in User.js
+const bookSchema = new Schema({
+  authors: [
+    {
+      type: String,
+    },
+  ],
+  description: {
+    type: String,
+    required: true,
+  },
+  // saved book id from GoogleBooks
+  bookId: {
+    type: String,
+    required: true,
+  },
+  image: {
+    type: String,
+  },
+  link: {
+    type: String,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+});
+
+module.exports = bookSchema;
+
+
+
+
+
+
+// const bookSchema = new Schema({
+//   AuthenticatorAttestationResponse: [
+//   {
+//     type: String,
+//     required: true,
+//     },
+//   ],
+//   description: {
+//     type: String,
+//     required: true,
+//   },
+//   bookId: {
+//     type: String,
+//     required: true,
+//   },
+//   image: {
+//     type: String,
+//   },
+//   link: {
+//     type: String,
+//   },
+//   title: {
+//     type: String,
+//     required: true,
+//   },
+// });
+
+// const Book = model('Book', bookSchema);
+
+// module.exports = Book;
