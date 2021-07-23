@@ -23,15 +23,14 @@ const typeDefs = gql`
     user: User
   }
   type Query {
-    users: [User]!
-    user(username: String!): User
+    me: User
   }
-
+  #from user-controller
   type Mutation {
-    addUser(username: String!, password: String!): Auth
+    createUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-
-    addBook
+    saveBook(savedBooks: [Book]!): User
+    deleteBook(BookId: String!): User
   }
 `;
 
