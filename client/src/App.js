@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 //sets the context to allow for user authentication
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -13,7 +8,7 @@ import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
 
 // Construct our main GraphQL API endpoint
-const httpLink = createHttpLink({
+const httpLink = new createHttpLink({
   uri: '/graphql',
 });
 
