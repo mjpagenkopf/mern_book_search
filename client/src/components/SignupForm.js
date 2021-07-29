@@ -16,7 +16,7 @@ const SignupForm = () => {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  const [createUser, { error, data }] = useMutation(CREATE_USER);
+  
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -26,7 +26,7 @@ const SignupForm = () => {
       [name]: value 
     });
   };
-
+  const [createUser, { error }] = useMutation(CREATE_USER);
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -56,10 +56,10 @@ const SignupForm = () => {
   };
 
   return (
-    <>
-      {/* This is needed for the validation functionality above */}
+    
+      
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        {/* show alert if server response is bad */}
+       
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your signup!
         </Alert>
@@ -109,7 +109,7 @@ const SignupForm = () => {
           Submit
         </Button>
       </Form>
-    </>
+   
   );
 };
 

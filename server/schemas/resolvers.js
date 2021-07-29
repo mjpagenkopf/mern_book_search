@@ -40,8 +40,31 @@ const resolvers = {
       const token = signToken(user);
       //matches the Auth in the typeDefs
       return { token, user };
+    },
+  
+
+  saveBook: async (parent, { book }, context) => {
+    if (context.user){
+      return await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { savedBooks: book } },
+          { new: true, runValidators: true }
+      );
+      
+    }
+    throw new AuthenticationError('error saving book');
+  },
+
+  deleteBook: async (parent, { bookId }, context) => {
+    if (context.user) {
+      return await User.findOneAndUpdate(
+        {_id: context.user._id},
+        { $pull: { savedBooks: { bookId }}},
+        { new: true }
+      )
     }
   },
+},
 };
 
 module.exports = resolvers;
