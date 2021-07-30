@@ -31,12 +31,11 @@ const typeDefs = gql`
     deleteBook(bookId: ID!): User
   }
   input BookInput {
-    bookId: ID
+    bookId: ID!
     authors: [String]
     title: String
     description: String
     image: String
-    link: String
   }
 `;
 
