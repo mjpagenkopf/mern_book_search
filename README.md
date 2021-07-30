@@ -14,7 +14,7 @@ This is a search engine application using a Google Books API that has been refac
 
 ## Installation
 
-Must have Node installed as well as npm dependencies including Express, Handlebars, Session, MySQL2, Sequelize, and dotenv. This app is deployed to Heroku using MySQL Workbench to store data
+Must have Node installed as well as npm dependencies including . This app is deployed to Heroku using MySQL Workbench to store data
 
 ## Usage Instructions
 
